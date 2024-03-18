@@ -1,3 +1,7 @@
+.error{
+  border: solid .0625rem var(--color-red);
+}
+
 .container{
   display: flex;
   flex-direction: column;
@@ -19,6 +23,7 @@
     width: 93.5%;
     margin-bottom: .25rem;
     padding: .75rem .75rem .75rem .75rem;
+    /* border: solid .0625rem var(--color-black); */
   }
   select{
     margin-bottom: .25rem;

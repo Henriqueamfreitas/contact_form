@@ -4,7 +4,7 @@
     <div class="container__div">
 
       <div>
-        <input class="text big black" type="text" placeholder="Name" formControlName="name">
+        <input class="text big black" type="text" placeholder="Name" formControlName="name" [ngClass]="{ 'error': errors.name && registerForm.get('name')?.touched }">
         <p class="text small white" *ngIf="!(errors.name?.['required']) || !(registerForm.get('name')?.touched)">
           null
         </p>
@@ -13,7 +13,7 @@
         </p>
       </div>
       <div>
-        <input class="text big black" type="email" placeholder="E-mail" formControlName="email">
+        <input class="text big black" type="email" placeholder="E-mail" formControlName="email" [ngClass]="{ 'error': errors.email && registerForm.get('email')?.touched }">
         <p
           class="text small white"
           *ngIf="!(errors.email?.['required'] && registerForm.get('email')?.touched) && !(errors.email?.['email'] && registerForm.get('email')?.touched)">
@@ -27,7 +27,7 @@
         </p>
       </div>
       <div>
-        <input class="text big black" type="tel" placeholder="Telephone" formControlName="telephone">
+        <input class="text big black" type="tel" placeholder="(00) 00000-0000" formControlName="telephone"  [ngClass]="{ 'error': errors.telephone && registerForm.get('telephone')?.touched }">
         <p
           class="text small white"
           *ngIf="!(errors.telephone?.['required'] && registerForm.get('telephone')?.touched) && !(errors.telephone?.['pattern'] && registerForm.get('telephone')?.touched)">
@@ -41,7 +41,7 @@
         </p>
       </div>
       <div>
-        <select class="text big black" formControlName="area">
+        <select class="text big black" formControlName="area"  [ngClass]="{ 'error': errors.area && registerForm.get('area')?.touched }">
           <option class="text big black" value=null>Area</option>
           <option class="text big black" value="administrativo">Administrative</option>
           <option class="text big black" value="hr">Human Resources</option>
@@ -55,7 +55,7 @@
         </p>
       </div>
       <div>
-        <textarea class="text big black" placeholder="Message" formControlName="message"></textarea>
+        <textarea class="text big black" placeholder="Message" formControlName="message"  [ngClass]="{ 'error': errors.message && registerForm.get('message')?.touched }"></textarea>
         <p class="text small white" *ngIf="!(errors.message?.['required']) || !(registerForm.get('message')?.touched)">
           null
         </p>
