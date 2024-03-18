@@ -1,45 +1,69 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <h1>Fale Conosco</h1>
-  <div>
-    <input type="text" placeholder="Name" formControlName="name">
-    <p *ngIf="errors.name?.['required'] && registerForm.get('name')?.touched">
-      This field is required
-    </p>
+  <div class="container">
+    <h1 class="title black container__h1">Fale Conosco</h1>
+    <div class="container__div">
+
+      <div>
+        <input class="text big black" type="text" placeholder="Name" formControlName="name">
+        <p class="text small white" *ngIf="!(errors.name?.['required']) || !(registerForm.get('name')?.touched)">
+          null
+        </p>
+        <p class="text small red" *ngIf="errors.name?.['required'] && registerForm.get('name')?.touched">
+          This field is required
+        </p>
+      </div>
+      <div>
+        <input class="text big black" type="email" placeholder="E-mail" formControlName="email">
+        <p
+          class="text small white"
+          *ngIf="!(errors.email?.['required'] && registerForm.get('email')?.touched) && !(errors.email?.['email'] && registerForm.get('email')?.touched)">
+          null
+        </p>
+        <p class="text small red" *ngIf="errors.email?.['required'] && registerForm.get('email')?.touched">
+          This field is required
+        </p>
+        <p class="text small red" *ngIf="errors.email?.['email'] && registerForm.get('email')?.touched">
+          Fill a valid email address
+        </p>
+      </div>
+      <div>
+        <input class="text big black" type="tel" placeholder="Telephone" formControlName="telephone">
+        <p
+          class="text small white"
+          *ngIf="!(errors.telephone?.['required'] && registerForm.get('telephone')?.touched) && !(errors.telephone?.['pattern'] && registerForm.get('telephone')?.touched)">
+          null
+        </p>
+        <p class="text small red" *ngIf="errors.telephone?.['required'] && registerForm.get('telephone')?.touched">
+          This field is required
+        </p>
+        <p class="text small red" *ngIf="errors.telephone?.['pattern'] && registerForm.get('telephone')?.touched">
+          This field is required
+        </p>
+      </div>
+      <div>
+        <select class="text big black" formControlName="area">
+          <option class="text big black" value=null>Area</option>
+          <option class="text big black" value="administrativo">Administrative</option>
+          <option class="text big black" value="hr">Human Resources</option>
+          <option class="text big black" value="comercial">Comercial</option>
+        </select>
+        <p class="text small white" *ngIf="!(errors.area?.['required']) || !(registerForm.get('area')?.touched)">
+          null
+        </p>
+        <p class="text small red" *ngIf="errors.area?.['required'] && registerForm.get('area')?.touched">
+          This field is required
+        </p>
+      </div>
+      <div>
+        <textarea class="text big black" placeholder="Message" formControlName="message"></textarea>
+        <p class="text small white" *ngIf="!(errors.message?.['required']) || !(registerForm.get('message')?.touched)">
+          null
+        </p>
+        <p class="text small red" *ngIf="errors.message?.['required'] && registerForm.get('message')?.touched">
+          This field is required
+        </p>
+      </div>
+    </div>
+    <button class="text white" type="submit">Send message</button>
   </div>
-  <div>
-    <input type="email" placeholder="E-mail" formControlName="email">
-    <p *ngIf="errors.email?.['required'] && registerForm.get('email')?.touched">
-      This field is required
-    </p>
-    <p *ngIf="errors.email?.['email'] && registerForm.get('email')?.touched">
-      Fill a valid email address
-    </p>
-  </div>
-  <div>
-    <input type="tel" placeholder="Telephone" formControlName="telephone">
-    <p *ngIf="errors.telephone?.['required'] && registerForm.get('telephone')?.touched">
-      This field is required
-    </p>
-    <p *ngIf="errors.telephone?.['pattern'] && registerForm.get('telephone')?.touched">
-      This field is required
-    </p>
-  </div>
-  <div>
-    <select formControlName="area">
-      <option value=null>Area</option>
-      <option value="administrativo">Administrative</option>
-      <option value="hr">Human Resources</option>
-      <option value="comercial">Comercial</option>
-    </select>
-    <p *ngIf="errors.area?.['required'] && registerForm.get('area')?.touched">
-      This field is required
-    </p>
-  </div>
-  <div>
-    <textarea placeholder="Message" formControlName="message"></textarea>
-    <p *ngIf="errors.message?.['required'] && registerForm.get('message')?.touched">
-      This field is required
-    </p>
-  </div>
-  <button type="submit">Send message</button>
 </form>

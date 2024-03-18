@@ -1,0 +1,20 @@
+main{
+  background-color: var(--color-blue1);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  padding: 3.5rem 4rem;
+  gap: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--color-white);
+  img{
+    width: 24.6875rem;
+    height: 34.77rem;
+  }
+}

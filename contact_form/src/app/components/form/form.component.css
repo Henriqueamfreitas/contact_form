@@ -1,0 +1,52 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 24.6875rem;
+  height: 34.77rem;
+  justify-content: space-between;
+}
+
+.container__h1{
+  margin-bottom: 1rem;
+}
+
+.container__div{
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  input{
+    width: 93.5%;
+    margin-bottom: .25rem;
+    padding: .75rem .75rem .75rem .75rem;
+  }
+  select{
+    margin-bottom: .25rem;
+    width: 100%;
+    padding: .75rem .75rem .75rem .75rem;
+  }
+  textarea{
+    margin-bottom: .25rem;
+    resize: none;
+    width: 93.5%;
+    height: 5.75rem;
+    padding: .75rem .75rem .75rem .75rem;
+  }
+  input::placeholder, textarea::placeholder{
+    color: var(--color-black);
+  }
+}
+
+button{
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  border: none;
+  width: fit-content;
+  background-color: var(--color-blue2);
+  transition: .5s;
+}
+
+button:hover{
+  background-color: var(--color-blue2-hover);
+  transition: .5s;
+}

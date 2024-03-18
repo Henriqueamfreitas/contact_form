@@ -1,0 +1,33 @@
+.title{
+  font-family: "Inter", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.text{
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+}
+
+.title.black, .text.black{
+  color: var(--color-black);
+}
+
+.title.white, .text.white{
+  color: var(--color-white);
+}
+
+.title.red, .text.red{
+  /* color: red; */
+  color: var(--color-red);
+}
+
+
+.text.big{
+  font-weight: 700;
+}
+
+.text.small{
+  font-weight: 400;
+}
+
