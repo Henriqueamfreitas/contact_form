@@ -1,13 +1,45 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <h1>Fale Conosco</h1>
-  <input type="text" placeholder="Nome">
-  <input type="email" placeholder="E-mail">
-  <input type="tel" placeholder="Telefone">
-  <select>
-    <option value="">Área</option>
-    <option value="administrativo">Administrativo</option>
-    <option value="rh">Recursos Humanos</option>
-    <option value="comercial">Comercial</option>
-  </select>
-  <textarea placeholder="Mensagem"></textarea>
+  <div>
+    <input type="text" placeholder="Name" formControlName="name">
+    <p *ngIf="errors.name?.['required'] && registerForm.get('name')?.touched">
+      This field is required
+    </p>
+  </div>
+  <div>
+    <input type="email" placeholder="E-mail" formControlName="email">
+    <p *ngIf="errors.email?.['required'] && registerForm.get('email')?.touched">
+      This field is required
+    </p>
+    <p *ngIf="errors.email?.['email'] && registerForm.get('email')?.touched">
+      Fill a valid email address
+    </p>
+  </div>
+  <div>
+    <input type="tel" placeholder="Telephone" formControlName="telephone">
+    <p *ngIf="errors.telephone?.['required'] && registerForm.get('telephone')?.touched">
+      This field is required
+    </p>
+    <p *ngIf="errors.telephone?.['pattern'] && registerForm.get('telephone')?.touched">
+      This field is required
+    </p>
+  </div>
+  <div>
+    <select formControlName="area">
+      <option value=null>Area</option>
+      <option value="administrativo">Administrative</option>
+      <option value="hr">Human Resources</option>
+      <option value="comercial">Comercial</option>
+    </select>
+    <p *ngIf="errors.area?.['required'] && registerForm.get('area')?.touched">
+      This field is required
+    </p>
+  </div>
+  <div>
+    <textarea placeholder="Message" formControlName="message"></textarea>
+    <p *ngIf="errors.message?.['required'] && registerForm.get('message')?.touched">
+      This field is required
+    </p>
+  </div>
+  <button type="submit">Send message</button>
 </form>
